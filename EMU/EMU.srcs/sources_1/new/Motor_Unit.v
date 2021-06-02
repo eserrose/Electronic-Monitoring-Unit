@@ -4,12 +4,8 @@
 // Engineer: 
 // 
 // Create Date: 06/02/2021 08:53:32 AM
-// Design Name: 
 // Module Name: Motor_Unit
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
+// Description: Sends ignition signal to motor if conditions are met
 // 
 // Dependencies: 
 // 
@@ -24,6 +20,7 @@ module Motor_Unit(
     input       rst,    //Reset signal
     input       en_0,   //Enable from open-circuit (Active-Low)
     input       en_1,   //Enable from microblaze
+    //TODO: remove en_1 and replace it with sensor data
     input       en_2,   //Enable from main avionic system
     output reg  ign     //Motor ignition signal    
     );
@@ -68,5 +65,5 @@ localparam WAIT_TIME = 5*12*1e3;    //5 ms
     end     //if rst
  end       //always   
  
-    
+//TODO: Calculate using sensor values, whether the engine should be fired or not    
 endmodule
