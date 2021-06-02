@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Wed Jun  2 07:51:58 2021
+# Process ID: 22348
+# Current directory: E:/Xilinx/Projects/ElectronicMonitoringUnit/EMU
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent23284 E:\Xilinx\Projects\ElectronicMonitoringUnit\EMU\EMU.xpr
+# Log file: E:/Xilinx/Projects/ElectronicMonitoringUnit/EMU/vivado.log
+# Journal file: E:/Xilinx/Projects/ElectronicMonitoringUnit/EMU\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project E:/Xilinx/Projects/ElectronicMonitoringUnit/EMU/EMU.xpr
+update_compile_order -fileset sources_1
