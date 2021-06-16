@@ -11,6 +11,7 @@
 // 
 // Revision:
 // Revision 0.01 - File Created
+//          1.00 - Motor Block Ready
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
@@ -19,9 +20,8 @@ module Motor_Unit(
     input       clk,    //Clock signal
     input       rst,    //Reset signal
     input       en_0,   //Enable from open-circuit (Active-Low)
-    input       en_1,   //Enable from microblaze
-    //TODO: remove en_1 and replace it with sensor data
-    input       en_2,   //Enable from main avionic system
+    input       en_1,   //Enable from main avionic system
+    input       en_2,   //Enable from sensor calculation block
     output reg  ign     //Motor ignition signal    
     );
 
@@ -34,7 +34,8 @@ localparam WAIT_TIME = 5*12*1e3;    //5 ms
     IGNITE   = 2'b10;  
     
  reg[1:0]   state = IDLE;
- reg[4:0]   counter = 0;
+ integer   counter = 0;
+
  // Ignition state machine
  always @(posedge clk)
  begin
@@ -53,7 +54,7 @@ localparam WAIT_TIME = 5*12*1e3;    //5 ms
       WAIT_EN: begin
         if(en_1 && en_2)
             counter <= counter + 1;
-        if(counter >= WAIT_TIME)
+        if(counter >= integer(WAIT_TIME))
             state <= IGNITE;
       end //WAIT_EN state
       
@@ -65,5 +66,4 @@ localparam WAIT_TIME = 5*12*1e3;    //5 ms
     end     //if rst
  end       //always   
  
-//TODO: Calculate using sensor values, whether the engine should be fired or not    
 endmodule

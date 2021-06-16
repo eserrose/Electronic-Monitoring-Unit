@@ -3,8 +3,8 @@
 // Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
 // Date        : Wed Jun  2 07:51:02 2021
 // Host        : EserPC running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim {e:/Xilinx/Projects/Electronic Monitoring
-//               Unit/EMU/EMU.gen/sources_1/bd/EMU_design/ip/EMU_design_clk_wiz_1_0/EMU_design_clk_wiz_1_0_sim_netlist.v}
+// Command     : write_verilog -force -mode funcsim -rename_top EMU_design_clk_wiz_1_0 -prefix
+//               EMU_design_clk_wiz_1_0_ EMU_design_clk_wiz_1_0_sim_netlist.v
 // Design      : EMU_design_clk_wiz_1_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -35,7 +35,6 @@ module EMU_design_clk_wiz_1_0
         .reset(reset));
 endmodule
 
-(* ORIG_REF_NAME = "EMU_design_clk_wiz_1_0_clk_wiz" *) 
 module EMU_design_clk_wiz_1_0_EMU_design_clk_wiz_1_0_clk_wiz
    (clk_out1,
     reset,

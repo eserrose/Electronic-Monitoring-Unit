@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Wed Jun 16 17:22:49 2021
+# Process ID: 1076
+# Current directory: E:/Xilinx/Projects/ElectronicMonitoringUnit/EMU/EMU.runs/EMU_design_mdm_1_0_synth_1
+# Command line: vivado.exe -log EMU_design_mdm_1_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source EMU_design_mdm_1_0.tcl
+# Log file: E:/Xilinx/Projects/ElectronicMonitoringUnit/EMU/EMU.runs/EMU_design_mdm_1_0_synth_1/EMU_design_mdm_1_0.vds
+# Journal file: E:/Xilinx/Projects/ElectronicMonitoringUnit/EMU/EMU.runs/EMU_design_mdm_1_0_synth_1\vivado.jou
+#-----------------------------------------------------------
+source EMU_design_mdm_1_0.tcl -notrace
