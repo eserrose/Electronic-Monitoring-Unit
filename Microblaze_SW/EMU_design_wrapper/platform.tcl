@@ -32,3 +32,4 @@ bsp reload
 platform config -updatehw {E:/Xilinx/Projects/ElectronicMonitoringUnit/EMU/EMU_design_wrapper.xsa}
 platform generate -domains 
 bsp reload
+bsp reload

@@ -50,14 +50,22 @@
 #include "xil_printf.h"
 #include "emu_board.h"
 
+extern u8 ReceiveBuffer[EMU_BUFFER_SIZE];	//UART RX Buffer
+extern volatile int TotalReceivedCount;		//Data arrived
+
 int main()
 {
     init_platform();
     init_filter();
+	//Clear receive buffer
+	memset(ReceiveBuffer, 0, EMU_BUFFER_SIZE);
 
     //Main loop
 	while(1){
-
+		if(TotalReceivedCount >= PACKET_SIZE){
+			process_rx_data((uint8_t*)ReceiveBuffer);
+			TotalReceivedCount = 0;
+		}
 
     }
 

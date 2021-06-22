@@ -54,8 +54,8 @@ XGpio Gpio; 					/* The Instance of the GPIO Driver */
 XUartLite UartLite;             /* The instance of the UartLite Device */
 XIntc InterruptController;      /* The instance of the Interrupt Controller */
 
-u8 ReceiveBuffer[EMU_BUFFER_SIZE];		//UART RX Buffer
-static volatile int TotalReceivedCount; //RX Counter
+u8 ReceiveBuffer[EMU_BUFFER_SIZE];			//UART RX Buffer
+volatile int TotalReceivedCount = 0; 		//RX Counter
 
 void
 enable_caches()
@@ -110,9 +110,6 @@ init_uart_lite()
 
 	// Enable interrupt
 	XUartLite_EnableInterrupt(&UartLite);
-
-	//Clear receive buffer
-	memset(ReceiveBuffer, 0, EMU_BUFFER_SIZE);
 
 	return XST_SUCCESS;
 }
@@ -230,7 +227,8 @@ int SetupInterruptSystem(XUartLite *UartLitePtr)
 
 void RecvHandler(void *CallBackRef, unsigned int EventData)
 {
-	TotalReceivedCount = EventData;
-	SET_ENABLE(); //let us know interrupt worked
-	//XUartLite_Send(&UartLite, &TotalReceivedCount, sizeof(int)); //let us know interrupt worked
+	u8 buf;
+	XUartLite_Recv(&UartLite, &buf, 1);
+	XIntc_Acknowledge(&InterruptController, UARTLITE_INT_IRQ_ID);
+	ReceiveBuffer[TotalReceivedCount++] = buf;
 }

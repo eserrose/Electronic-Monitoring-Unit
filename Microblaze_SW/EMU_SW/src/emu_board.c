@@ -47,6 +47,26 @@ uint8_t step(double *z)
 	return ekf_step(&ekf, z);
 }
 
+uint8_t check_crc(uint8_t *data){
+	//implement crc-16
+	return 0;
+}
+
+void process_rx_data(uint8_t *data)
+{
+	sensor_data_t sensor_data;
+	SET_ENABLE();
+	if(check_crc(data) > 0){
+		sensor_data.BMP    = data[0] | (data[1] >> 8);
+		sensor_data.MPU[0] = data[2] | (data[3] >> 8);
+		sensor_data.MPU[1] = data[4] | (data[5] >> 8);
+		sensor_data.MPU[2] = data[6] | (data[7] >> 8);
+		sensor_data.DIST   = data[8] | (data[9] >> 8);
+
+		process_data(sensor_data);
+	}
+}
+
 void process_data(sensor_data_t data)
 {
 	double baro_alt = 44330*(1 - pow(data.BMP/P0, 1/5.255));

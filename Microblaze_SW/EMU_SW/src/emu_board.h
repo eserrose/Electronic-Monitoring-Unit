@@ -4,6 +4,7 @@
 #include "stdint.h"
 #include "kalman_filter.h"
 
+#define PACKET_SIZE		 12 //Bytes, sensors + 2-bytes CRC
 #define MIN_ANGLE		 60	//Min allowable pitch angle
 #define MAX_ANGLE		 90 //Max allowable pitch angle
 #define MIN_ALTITUDE	300 //Min allowable altitude
@@ -70,6 +71,16 @@ void model(double fx[Nsta], double F[Nsta][Nsta], double hx[Mobs], double H[Mobs
 	 * @return 0 on success, 1 on failure caused by non-positive-definite matrix.
  */
 uint8_t step(double *z);
+
+/**
+ * Checks 16-bit crc to confirm received data
+ */
+uint8_t check_crc(uint8_t *data);
+
+/**
+ * Processes data received by UART and constructs a sensor_data_t
+ */
+void process_rx_data(uint8_t *data);
 
 /**
  * @brief processes the oncoming sensor data
