@@ -2,8 +2,8 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Tue Jun 22 20:10:54 2021
-# Process ID: 51832
+# Start of session at: Tue Jun 22 22:46:54 2021
+# Process ID: 54284
 # Current directory: E:/Xilinx/Projects/ElectronicMonitoringUnit/EMU/EMU.runs/EMU_design_microblaze_0_axi_intc_0_synth_1
 # Command line: vivado.exe -log EMU_design_microblaze_0_axi_intc_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source EMU_design_microblaze_0_axi_intc_0.tcl
 # Log file: E:/Xilinx/Projects/ElectronicMonitoringUnit/EMU/EMU.runs/EMU_design_microblaze_0_axi_intc_0_synth_1/EMU_design_microblaze_0_axi_intc_0.vds
@@ -17,16 +17,16 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 51336
+INFO: [Synth 8-7075] Helper process launched with PID 52324
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 1147.344 ; gain = 21.340
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1146.969 ; gain = 3.188
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'EMU_design_microblaze_0_axi_intc_0' [e:/Xilinx/Projects/ElectronicMonitoringUnit/EMU/EMU.gen/sources_1/bd/EMU_design/ip/EMU_design_microblaze_0_axi_intc_0/synth/EMU_design_microblaze_0_axi_intc_0.vhd:89]
 	Parameter C_FAMILY bound to: artix7 - type: string 
 	Parameter C_INSTANCE bound to: EMU_design_microblaze_0_axi_intc_0 - type: string 
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 9 - type: integer 
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
-	Parameter C_NUM_INTR_INPUTS bound to: 2 - type: integer 
+	Parameter C_NUM_INTR_INPUTS bound to: 1 - type: integer 
 	Parameter C_NUM_SW_INTR bound to: 0 - type: integer 
 	Parameter C_KIND_OF_INTR bound to: 32'b11111111111111111111111111111111 
 	Parameter C_KIND_OF_EDGE bound to: 32'b11111111111111111111111111111111 
@@ -54,7 +54,7 @@ INFO: [Synth 8-638] synthesizing module 'axi_intc' [e:/Xilinx/Projects/Electroni
 	Parameter C_INSTANCE bound to: EMU_design_microblaze_0_axi_intc_0 - type: string 
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 9 - type: integer 
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
-	Parameter C_NUM_INTR_INPUTS bound to: 2 - type: integer 
+	Parameter C_NUM_INTR_INPUTS bound to: 1 - type: integer 
 	Parameter C_NUM_SW_INTR bound to: 0 - type: integer 
 	Parameter C_KIND_OF_INTR bound to: -1 - type: integer 
 	Parameter C_KIND_OF_EDGE bound to: -1 - type: integer 
@@ -79,7 +79,7 @@ INFO: [Synth 8-638] synthesizing module 'axi_intc' [e:/Xilinx/Projects/Electroni
 INFO: [Synth 8-638] synthesizing module 'intc_core' [e:/Xilinx/Projects/ElectronicMonitoringUnit/EMU/EMU.gen/sources_1/bd/EMU_design/ipshared/47b8/hdl/axi_intc_v4_1_vh_rfs.vhd:794]
 	Parameter C_FAMILY bound to: artix7 - type: string 
 	Parameter C_DWIDTH bound to: 32 - type: integer 
-	Parameter C_NUM_INTR_INPUTS bound to: 2 - type: integer 
+	Parameter C_NUM_INTR_INPUTS bound to: 1 - type: integer 
 	Parameter C_NUM_SW_INTR bound to: 0 - type: integer 
 	Parameter C_KIND_OF_INTR bound to: -1 - type: integer 
 	Parameter C_KIND_OF_EDGE bound to: -1 - type: integer 
@@ -266,18 +266,18 @@ INFO: [Synth 8-256] done synthesizing module 'axi_lite_ipif' (6#1) [e:/Xilinx/Pr
 INFO: [Synth 8-256] done synthesizing module 'axi_intc' (7#1) [e:/Xilinx/Projects/ElectronicMonitoringUnit/EMU/EMU.gen/sources_1/bd/EMU_design/ipshared/47b8/hdl/axi_intc_v4_1_vh_rfs.vhd:3553]
 INFO: [Synth 8-256] done synthesizing module 'EMU_design_microblaze_0_axi_intc_0' (8#1) [e:/Xilinx/Projects/ElectronicMonitoringUnit/EMU/EMU.gen/sources_1/bd/EMU_design/ip/EMU_design_microblaze_0_axi_intc_0/synth/EMU_design_microblaze_0_axi_intc_0.vhd:89]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:08 . Memory (MB): peak = 1212.668 ; gain = 86.664
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1211.961 ; gain = 68.180
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:08 . Memory (MB): peak = 1212.668 ; gain = 86.664
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1211.961 ; gain = 68.180
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:08 . Memory (MB): peak = 1212.668 ; gain = 86.664
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1211.961 ; gain = 68.180
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 1212.668 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 1211.961 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -292,27 +292,27 @@ Parsing XDC File [e:/Xilinx/Projects/ElectronicMonitoringUnit/EMU/EMU.gen/source
 Finished Parsing XDC File [e:/Xilinx/Projects/ElectronicMonitoringUnit/EMU/EMU.gen/sources_1/bd/EMU_design/ip/EMU_design_microblaze_0_axi_intc_0/EMU_design_microblaze_0_axi_intc_0_clocks.xdc] for cell 'U0'
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1308.621 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1307.902 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.021 . Memory (MB): peak = 1319.574 ; gain = 10.953
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 1319.406 ; gain = 11.504
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:14 . Memory (MB): peak = 1319.574 ; gain = 193.570
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1319.406 ; gain = 175.625
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:14 . Memory (MB): peak = 1319.574 ; gain = 193.570
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1319.406 ; gain = 175.625
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property KEEP_HIERARCHY = SOFT for U0. (constraint file  E:/Xilinx/Projects/ElectronicMonitoringUnit/EMU/EMU.runs/EMU_design_microblaze_0_axi_intc_0_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:14 . Memory (MB): peak = 1319.574 ; gain = 193.570
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1319.406 ; gain = 175.625
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'IRQ_LEVEL_GEN.IRQ_LEVEL_FAST_ON_AXI_CLK_GEN.current_state_reg' in module 'intc_core'
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'slave_attachment'
@@ -334,7 +334,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'IRQ_LEVEL_GEN.IRQ_LEVEL_FA
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'slave_attachment'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1319.574 ; gain = 193.570
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1319.406 ; gain = 175.625
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -346,19 +346,17 @@ Detailed RTL Component Info :
 	               32 Bit    Registers := 4     
 	                9 Bit    Registers := 1     
 	                4 Bit    Registers := 1     
-	                2 Bit    Registers := 6     
-	                1 Bit    Registers := 63    
+	                2 Bit    Registers := 3     
+	                1 Bit    Registers := 57    
 +---Muxes : 
 	   2 Input   32 Bit        Muxes := 3     
-	   2 Input   30 Bit        Muxes := 1     
 	   2 Input    9 Bit        Muxes := 1     
 	   4 Input    4 Bit        Muxes := 1     
 	   2 Input    4 Bit        Muxes := 6     
 	   3 Input    2 Bit        Muxes := 1     
-	   2 Input    2 Bit        Muxes := 9     
-	   4 Input    2 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 7     
 	   7 Input    2 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 32    
+	   2 Input    1 Bit        Muxes := 29    
 	   4 Input    1 Bit        Muxes := 3     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -376,7 +374,7 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:16 . Memory (MB): peak = 1319.574 ; gain = 193.570
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1319.406 ; gain = 175.625
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -397,19 +395,19 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 1319.574 ; gain = 193.570
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1319.406 ; gain = 175.625
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1321.457 ; gain = 195.453
+Finished Timing Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1322.633 ; gain = 178.852
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1332.086 ; gain = 206.082
+Finished Technology Mapping : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1323.602 ; gain = 179.820
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -427,37 +425,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 1332.086 ; gain = 206.082
+Finished IO Insertion : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1330.391 ; gain = 186.609
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 1332.086 ; gain = 206.082
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1330.391 ; gain = 186.609
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 1332.086 ; gain = 206.082
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1330.391 ; gain = 186.609
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 1332.086 ; gain = 206.082
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1330.391 ; gain = 186.609
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 1332.086 ; gain = 206.082
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1330.391 ; gain = 186.609
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 1332.086 ; gain = 206.082
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1330.391 ; gain = 186.609
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -474,28 +472,28 @@ Report Cell Usage:
 |      |Cell     |Count |
 +------+---------+------+
 |1     |LUT1     |     2|
-|2     |LUT2     |    22|
-|3     |LUT3     |    20|
-|4     |LUT4     |    46|
-|5     |LUT5     |    35|
-|6     |LUT6     |    27|
+|2     |LUT2     |    15|
+|3     |LUT3     |    49|
+|4     |LUT4     |    29|
+|5     |LUT5     |    20|
+|6     |LUT6     |    19|
 |7     |RAM16X1D |    32|
-|8     |FDRE     |   183|
+|8     |FDRE     |   169|
 |9     |FDSE     |     2|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 1332.086 ; gain = 206.082
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1330.391 ; gain = 186.609
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:15 ; elapsed = 00:00:24 . Memory (MB): peak = 1332.086 ; gain = 99.176
-Synthesis Optimization Complete : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 1332.086 ; gain = 206.082
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:20 . Memory (MB): peak = 1330.391 ; gain = 79.164
+Synthesis Optimization Complete : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1330.391 ; gain = 186.609
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1340.895 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1342.461 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 32 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1341.879 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1343.418 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 32 instances were transformed.
   RAM16X1D => RAM32X1D (RAMD32(x2)): 32 instances
@@ -503,11 +501,11 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 INFO: [Common 17-83] Releasing license: Synthesis
 76 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:28 ; elapsed = 00:00:32 . Memory (MB): peak = 1341.879 ; gain = 215.875
+synth_design: Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1343.418 ; gain = 199.637
 INFO: [Common 17-1381] The checkpoint 'E:/Xilinx/Projects/ElectronicMonitoringUnit/EMU/EMU.runs/EMU_design_microblaze_0_axi_intc_0_synth_1/EMU_design_microblaze_0_axi_intc_0.dcp' has been generated.
 WARNING: [Common 17-576] 'use_project_ipc' is deprecated. This option is deprecated and no longer used.
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP EMU_design_microblaze_0_axi_intc_0, cache-ID = 930954453e60cf2a
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP EMU_design_microblaze_0_axi_intc_0, cache-ID = 0ddd00b3ff34ddbc
 INFO: [Coretcl 2-1174] Renamed 6 cell refs.
 INFO: [Common 17-1381] The checkpoint 'E:/Xilinx/Projects/ElectronicMonitoringUnit/EMU/EMU.runs/EMU_design_microblaze_0_axi_intc_0_synth_1/EMU_design_microblaze_0_axi_intc_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file EMU_design_microblaze_0_axi_intc_0_utilization_synth.rpt -pb EMU_design_microblaze_0_axi_intc_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Jun 22 20:11:38 2021...
+INFO: [Common 17-206] Exiting Vivado at Tue Jun 22 22:47:27 2021...

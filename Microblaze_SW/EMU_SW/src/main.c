@@ -56,7 +56,11 @@ int main()
     init_filter();
     //Main loop
 
-    while(1){
+    u8 test = 7;
+	XUartLite_Send(&UartLite, &test, 1);
+
+	while(1){
+
 
     }
 
