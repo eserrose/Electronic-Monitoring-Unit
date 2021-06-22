@@ -107,7 +107,6 @@ init_uart_lite()
 
 	//Setup the handler for the UartLite RX
 	XUartLite_SetRecvHandler(&UartLite, RecvHandler, &UartLite);
-	XUartLite_SetSendHandler(&UartLite, TxHandler, &UartLite);
 
 	// Enable interrupt
 	XUartLite_EnableInterrupt(&UartLite);
@@ -142,7 +141,7 @@ init_platform()
     enable_caches();
     init_gpio();
     init_uart_lite();
-    microblaze_enable_interrupts();
+    microblaze_enable_interrupts(); //this is the most important step that's not included in tutorials!
 }
 
 void
@@ -232,13 +231,6 @@ int SetupInterruptSystem(XUartLite *UartLitePtr)
 void RecvHandler(void *CallBackRef, unsigned int EventData)
 {
 	TotalReceivedCount = EventData;
-	//xil_printf("RX");
+	SET_ENABLE(); //let us know interrupt worked
 	//XUartLite_Send(&UartLite, &TotalReceivedCount, sizeof(int)); //let us know interrupt worked
-
 }
-
-void TxHandler(void *CallBackRef, unsigned int EventData)
-{
-	SET_ENABLE();
-}
-

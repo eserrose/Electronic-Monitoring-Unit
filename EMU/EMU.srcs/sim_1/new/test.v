@@ -52,12 +52,18 @@ EMU_design_wrapper DUT(
 
     initial rxd <= 1'b1;
     
-    /*
-    reg[9:0]sl_reg = 10'b1100100011;    
+    reg[9:0]sl_reg = 10'b0100100011;  
+    integer i = 0;  
     always begin
-        #(1e9/9600)
-        rxd <= sl_reg[9];
-        sl_reg <= sl_reg << 1;
-     end*/
+        if(i > 5000) begin
+            #(1e9/9600)
+            rxd <= sl_reg[9];
+            sl_reg <= sl_reg << 1;
+        end
+        if(i == 5009) begin
+            i = 0;
+        end
+        i = i + 1;
+     end
     
 endmodule

@@ -16,7 +16,6 @@
 
 int SetupInterruptSystem(XUartLite *UartLitePtr);
 void RecvHandler(void *CallBackRef, unsigned int EventData);
-void TxHandler(void *CallBackRef, unsigned int EventData);
 
 extern XGpio Gpio; 					   /* The Instance of the GPIO Driver */
 extern XUartLite UartLite;             /* The instance of the UartLite Device */
