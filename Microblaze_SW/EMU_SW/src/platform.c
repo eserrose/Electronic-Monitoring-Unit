@@ -89,6 +89,15 @@ init_uart()
 }
 
 void
+init_gpio()
+{
+	/* Initialize the GPIO driver */
+	if (XGpio_Initialize(&Gpio, XPAR_GPIO_0_DEVICE_ID) != XST_SUCCESS) {
+		xil_printf("Gpio Initialization Failed\r\n");
+	}
+}
+
+void
 init_platform()
 {
     /*
@@ -102,6 +111,8 @@ init_platform()
     /* psu_init();*/
     enable_caches();
     init_uart();
+    init_gpio();
+
 }
 
 void

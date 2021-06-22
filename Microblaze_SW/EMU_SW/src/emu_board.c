@@ -1,4 +1,5 @@
 #include "emu_board.h"
+#include "platform_config.h"
 #include <math.h>
 
 ekf_t ekf;
@@ -52,17 +53,21 @@ void process_data(sensor_data_t data)
 	double gnd_angle = sqrt(pow(data.MPU[0],2) + pow(data.MPU[1],2) + pow(data.MPU[2],2) );
 	double z[3] = {gnd_angle, baro_alt, (double) data.DIST};
 	step(z);
-	transfer_new_data(&data);
+	check_conds(&data);
 }
 
-void transfer_new_data(sensor_data_t* org_data)
+void check_conds(sensor_data_t* org_data)
 {
 	double new_data[3] = {ekf.x[0], ekf.x[1], ekf.x[2]};
+
+	if(ekf.x[0] > MIN_ANGLE && ekf.x[0] < MAX_ANGLE && ekf.x[1] > MIN_ALTITUDE){
+		SET_ENABLE();
+	}
 
 	store_data(org_data, new_data);
 }
 
 void store_data(sensor_data_t* org_data, double* filter_data)
 {
-
+	//Use quad SPI to transfer data to external flash memory
 }

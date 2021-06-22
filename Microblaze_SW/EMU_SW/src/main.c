@@ -55,6 +55,7 @@ int main()
     init_platform();
     init_filter();
     //Main loop
+
     while(1){
 
     }

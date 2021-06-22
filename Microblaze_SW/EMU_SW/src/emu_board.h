@@ -4,6 +4,10 @@
 #include "stdint.h"
 #include "kalman_filter.h"
 
+#define MIN_ANGLE		 60	//Min allowable pitch angle
+#define MAX_ANGLE		 90 //Max allowable pitch angle
+#define MIN_ALTITUDE	300 //Min allowable altitude
+
 #define Nsta	2 //state variables: altitude and angle
 #define Mobs	3 //observations: mpu angles, barometric altitude, and laser altitude
 
@@ -77,9 +81,9 @@ uint8_t step(double *z);
 void process_data(sensor_data_t data);
 
 /**
- * @brief transfers the new sensor data to the calculation block
+ * @brief checks if the sensor data satisfies the conditions and set enable pin if that's the case
  */
-void transfer_new_data(sensor_data_t* org_data);
+void check_conds(sensor_data_t* org_data);
 
 /**
  * @brief stores the received sensor data inside the storage unit

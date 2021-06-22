@@ -9,6 +9,8 @@ vhdl xil_defaultlib  \
 "../../../../EMU.ip_user_files/bd/EMU_design/ip/EMU_design_mdm_1_0/sim/EMU_design_mdm_1_0.vhd" \
 "../../../../EMU.ip_user_files/bd/EMU_design/ip/EMU_design_rst_clk_wiz_1_100M_0/sim/EMU_design_rst_clk_wiz_1_100M_0.vhd" \
 "../../../../EMU.ip_user_files/bd/EMU_design/ip/EMU_design_axi_uartlite_0_0/sim/EMU_design_axi_uartlite_0_0.vhd" \
+"../../../../EMU.ip_user_files/bd/EMU_design/ip/EMU_design_axi_quad_spi_0_0/sim/EMU_design_axi_quad_spi_0_0.vhd" \
+"../../../../EMU.ip_user_files/bd/EMU_design/ip/EMU_design_axi_gpio_0_1/sim/EMU_design_axi_gpio_0_1.vhd" \
 
 # Do not sort compile order
 nosort

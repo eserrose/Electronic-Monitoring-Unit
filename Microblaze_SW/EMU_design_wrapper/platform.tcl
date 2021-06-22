@@ -20,3 +20,10 @@ platform generate -quick
 platform generate
 bsp reload
 bsp reload
+platform active {EMU_design_wrapper}
+bsp reload
+bsp reload
+platform config -updatehw {E:/Xilinx/Projects/ElectronicMonitoringUnit/EMU/EMU_design_wrapper.xsa}
+bsp reload
+platform generate
+bsp reload

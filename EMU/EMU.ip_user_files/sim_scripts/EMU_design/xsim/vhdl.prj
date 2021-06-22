@@ -1,63 +1,14 @@
-vhdl xpm  \
-"E:/Xilinx/Vivado/2020.2/data/ip/xpm/xpm_VCOMP.vhd" \
-
-vhdl microblaze_v11_0_4  \
-"../../../../EMU.gen/sources_1/bd/EMU_design/ipshared/9285/hdl/microblaze_v11_0_vh_rfs.vhd" \
-
 vhdl xil_defaultlib  \
 "../../../bd/EMU_design/ip/EMU_design_microblaze_0_0/sim/EMU_design_microblaze_0_0.vhd" \
-
-vhdl lmb_v10_v3_0_11  \
-"../../../../EMU.gen/sources_1/bd/EMU_design/ipshared/c2ed/hdl/lmb_v10_v3_0_vh_rfs.vhd" \
-
-vhdl xil_defaultlib  \
 "../../../bd/EMU_design/ip/EMU_design_dlmb_v10_0/sim/EMU_design_dlmb_v10_0.vhd" \
 "../../../bd/EMU_design/ip/EMU_design_ilmb_v10_0/sim/EMU_design_ilmb_v10_0.vhd" \
-
-vhdl lmb_bram_if_cntlr_v4_0_19  \
-"../../../../EMU.gen/sources_1/bd/EMU_design/ipshared/0b98/hdl/lmb_bram_if_cntlr_v4_0_vh_rfs.vhd" \
-
-vhdl xil_defaultlib  \
 "../../../bd/EMU_design/ip/EMU_design_dlmb_bram_if_cntlr_0/sim/EMU_design_dlmb_bram_if_cntlr_0.vhd" \
 "../../../bd/EMU_design/ip/EMU_design_ilmb_bram_if_cntlr_0/sim/EMU_design_ilmb_bram_if_cntlr_0.vhd" \
-
-vhdl fifo_generator_v13_2_5  \
-"../../../../EMU.gen/sources_1/bd/EMU_design/ipshared/276e/hdl/fifo_generator_v13_2_rfs.vhd" \
-
-vhdl axi_lite_ipif_v3_0_4  \
-"../../../../EMU.gen/sources_1/bd/EMU_design/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd" \
-
-vhdl axi_intc_v4_1_15  \
-"../../../../EMU.gen/sources_1/bd/EMU_design/ipshared/47b8/hdl/axi_intc_v4_1_vh_rfs.vhd" \
-
-vhdl xil_defaultlib  \
 "../../../bd/EMU_design/ip/EMU_design_microblaze_0_axi_intc_0/sim/EMU_design_microblaze_0_axi_intc_0.vhd" \
-
-vhdl mdm_v3_2_19  \
-"../../../../EMU.gen/sources_1/bd/EMU_design/ipshared/8715/hdl/mdm_v3_2_vh_rfs.vhd" \
-
-vhdl xil_defaultlib  \
 "../../../bd/EMU_design/ip/EMU_design_mdm_1_0/sim/EMU_design_mdm_1_0.vhd" \
-
-vhdl lib_cdc_v1_0_2  \
-"../../../../EMU.gen/sources_1/bd/EMU_design/ipshared/ef1e/hdl/lib_cdc_v1_0_rfs.vhd" \
-
-vhdl proc_sys_reset_v5_0_13  \
-"../../../../EMU.gen/sources_1/bd/EMU_design/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd" \
-
-vhdl xil_defaultlib  \
 "../../../bd/EMU_design/ip/EMU_design_rst_clk_wiz_1_100M_0/sim/EMU_design_rst_clk_wiz_1_100M_0.vhd" \
-
-vhdl lib_pkg_v1_0_2  \
-"../../../../EMU.gen/sources_1/bd/EMU_design/ipshared/0513/hdl/lib_pkg_v1_0_rfs.vhd" \
-
-vhdl lib_srl_fifo_v1_0_2  \
-"../../../../EMU.gen/sources_1/bd/EMU_design/ipshared/51ce/hdl/lib_srl_fifo_v1_0_rfs.vhd" \
-
-vhdl axi_uartlite_v2_0_26  \
-"../../../../EMU.gen/sources_1/bd/EMU_design/ipshared/5edb/hdl/axi_uartlite_v2_0_vh_rfs.vhd" \
-
-vhdl xil_defaultlib  \
 "../../../bd/EMU_design/ip/EMU_design_axi_uartlite_0_0/sim/EMU_design_axi_uartlite_0_0.vhd" \
+"../../../bd/EMU_design/ip/EMU_design_axi_quad_spi_0_0/sim/EMU_design_axi_quad_spi_0_0.vhd" \
+"../../../bd/EMU_design/ip/EMU_design_axi_gpio_0_1/sim/EMU_design_axi_gpio_0_1.vhd" \
 
 nosort

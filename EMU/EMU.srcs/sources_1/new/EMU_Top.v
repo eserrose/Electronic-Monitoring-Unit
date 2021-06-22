@@ -25,7 +25,7 @@ module EMU_Top(
  wire   rxd;    //RX of microblaze, connected to tx of comm unit
  wire   txd;    //TX of microblaze, connected to rx of calculation block 
  wire   en_1;   //Enable pin from comm unit to motor unit
- wire   en_2;   //Enable pin from calculation block to motor unit
+ wire   en_2;   //Enable pin from mb to motor unit
  wire   addr;   //Address line of memory block
  wire   data;   //Data line of memory block
  wire   memw;   //Memory write
@@ -46,11 +46,17 @@ module EMU_Top(
     );
     
  EMU_design_wrapper MicroBlaze(
-    .reset          (rst),
-    .sys_clock      (clk),
-    .usb_uart_rxd   (rxd),
-    .usb_uart_txd   (txd)); //connect this to calculation ip
-    
+    .gpio_rtl_tri_o     (en_2),
+    .qspi_flash_io0_io  (spi_0),
+    .qspi_flash_io1_io  (spi_1),
+    .qspi_flash_io2_io  (spi_2),
+    .qspi_flash_io3_io  (spi_3),
+    .qspi_flash_ss_io   (spi_ss),
+    .reset              (rst),
+    .sys_clock          (clk),
+    .usb_uart_rxd       (rxd),
+    .usb_uart_txd       (txd));
+
  Motor_Unit MotorBlock(
     .clk       (clk),    //Clock signal
     .rst       (rst),    //Reset signal
