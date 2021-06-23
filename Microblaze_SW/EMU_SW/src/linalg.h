@@ -7,7 +7,7 @@
  *@param m row size
  *@param n col size
  */
-void zeros(double * a, int m, int n);
+void zeros(float * a, int m, int n);
 
 /**
  * @brief Matrix multiplication C <- A * B
@@ -18,7 +18,7 @@ void zeros(double * a, int m, int n);
  * @param acols number of cols of a
  * @param bcols number of cols of b
  */
-void mulmat(double * a, double * b, double * c, int arows, int acols, int bcols);
+void mulmat(float * a, float * b, float * c, int arows, int acols, int bcols);
 
 /**
  * @brief Vector multiplication y <- a * x
@@ -28,7 +28,7 @@ void mulmat(double * a, double * b, double * c, int arows, int acols, int bcols)
  * @param m size of a
  * @param n size of x
  */
-void mulvec(double * a, double * x, double * y, int m, int n);
+void mulvec(float * a, float * x, float * y, int m, int n);
 
 /**
  * @brief Transposes a matrix At <- A^T
@@ -37,7 +37,7 @@ void mulvec(double * a, double * x, double * y, int m, int n);
  * @param m number of rows of a
  * @param n number of cols of a
  */
-void transpose(double * a, double * at, int m, int n);
+void transpose(float * a, float * at, int m, int n);
 
 /**
  * @brief Accumulates two vectors of into the first one A <- A + B
@@ -46,7 +46,7 @@ void transpose(double * a, double * at, int m, int n);
  * @param m number of elements of a
  * @param n number of elements of b
  */
-void accum(double * a, double * b, int m, int n);
+void accum(float * a, float * b, int m, int n);
 
 /**
  * @brief Adds two vectors of same size into a new one C <- A + B
@@ -55,7 +55,7 @@ void accum(double * a, double * b, int m, int n);
  * @param c resultant vector
  * @param n number of elements
  */
-void add(double * a, double * b, double * c, int n);
+void add(float * a, float * b, float * c, int n);
 
 /**
  * @brief Subtracts two vectors of same size into a new one C <- A - B
@@ -64,7 +64,7 @@ void add(double * a, double * b, double * c, int n);
  * @param c resultant vector
  * @param n number of elements
  */
-void sub(double * a, double * b, double * c, int n);
+void sub(float * a, float * b, float * c, int n);
 
 /**
  * @brief negates a matrix A <- -A
@@ -72,14 +72,14 @@ void sub(double * a, double * b, double * c, int n);
  * @param m number of rows
  * @param n number of cols
  */
-void negate(double * a, int m, int n);
+void negate(float * a, int m, int n);
 
 /**
  * @brief adds the identity matrix (eye) to another one
  * @param a square matrix
  * @param n size of matrix
  */
-void mat_addeye(double * a, int n);
+void mat_addeye(float * a, int n);
 
 /*
  * @brief Cholesky-decomposition matrix-inversion code, adapated from
@@ -87,10 +87,10 @@ void mat_addeye(double * a, int n);
  *
  * @return 0 if success, 1 otherwise
  */
-int choldc1(double * a, double * p, int n);
+int choldc1(float * a, float * p, int n);
 
-int choldcsl(double * A, double * a, double * p, int n);
+int choldcsl(float * A, float * a, float * p, int n);
 
-int cholsl(double * A, double * a, double * p, int n);
+int cholsl(float * A, float * a, float * p, int n);
 
 #endif /* LINALG_H_ */

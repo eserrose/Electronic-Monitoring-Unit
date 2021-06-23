@@ -3,31 +3,31 @@
 
 typedef struct {
 
-    double * x;    /* state vector */
+	float * x;    /* state vector */
 
-    double * P;  /* prediction error covariance */
-    double * Q;  /* process noise covariance */
-    double * R;  /* measurement error covariance */
+	float * P;  /* prediction error covariance */
+	float * Q;  /* process noise covariance */
+	float * R;  /* measurement error covariance */
 
-    double * G;  /* Kalman gain; a.k.a. K */
+	float * G;  /* Kalman gain; a.k.a. K */
 
-    double * F;  /* Jacobian of process model */
-    double * H;  /* Jacobian of measurement model */
+	float * F;  /* Jacobian of process model */
+	float * H;  /* Jacobian of measurement model */
 
-    double * Ht; /* transpose of measurement Jacobian */
-    double * Ft; /* transpose of process Jacobian */
-    double * Pp; /* P, post-prediction, pre-update */
+	float * Ht; /* transpose of measurement Jacobian */
+	float * Ft; /* transpose of process Jacobian */
+	float * Pp; /* P, post-prediction, pre-update */
 
-    double * fx;  /* output of user defined f() state-transition function */
-    double * hx;  /* output of user defined h() measurement function */
+	float * fx;  /* output of user defined f() state-transition function */
+	float * hx;  /* output of user defined h() measurement function */
 
     /* temporary storage */
-    double * tmp0;
-    double * tmp1;
-    double * tmp2;
-    double * tmp3;
-    double * tmp4;
-    double * tmp5;
+	float * tmp0;
+	float * tmp1;
+	float * tmp2;
+	float * tmp3;
+	float * tmp4;
+	float * tmp5;
 
 } ekf_t;
 
@@ -37,7 +37,7 @@ static void unpack(void * v, ekf_t * ekf, int n, int m)
     char * cptr = (char *)v;
     cptr += 2*sizeof(int);
 
-    double * dptr = (double *)cptr;
+    float * dptr = (float *)cptr;
     ekf->x = dptr;
     dptr += n;
     ekf->P = dptr;
@@ -96,7 +96,7 @@ void ekf_init(void * v, int n, int m)
     zeros(ekf.H, m, n);
 }
 
-uint8_t ekf_step(void * v, double * z)
+uint8_t ekf_step(void * v, float * z)
 {
     /* unpack incoming structure */
     int * ptr = (int *)v;

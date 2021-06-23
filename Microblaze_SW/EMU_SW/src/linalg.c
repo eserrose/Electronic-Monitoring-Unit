@@ -1,13 +1,13 @@
 #include "linalg.h"
 #include <math.h>
 
-void zeros(double * a, int m, int n)
+void zeros(float * a, int m, int n)
 {
     for (int j=0; j<m*n; ++j)
         a[j] = 0;
 }
 
-void mulmat(double * a, double * b, double * c, int arows, int acols, int bcols)
+void mulmat(float * a, float * b, float * c, int arows, int acols, int bcols)
 {
     for(int i=0; i<arows; ++i)
         for(int j=0; j<bcols; ++j) {
@@ -17,7 +17,7 @@ void mulmat(double * a, double * b, double * c, int arows, int acols, int bcols)
         }
 }
 
-void mulvec(double * a, double * x, double * y, int m, int n)
+void mulvec(float * a, float * x, float * y, int m, int n)
 {
     for(int i=0; i<m; ++i) {
         y[i] = 0;
@@ -26,7 +26,7 @@ void mulvec(double * a, double * x, double * y, int m, int n)
     }
 }
 
-void transpose(double * a, double * at, int m, int n)
+void transpose(float * a, float * at, int m, int n)
 {
     for(int i=0; i<m; ++i)
         for(int j=0; j<n; ++j) {
@@ -34,40 +34,40 @@ void transpose(double * a, double * at, int m, int n)
         }
 }
 
-void accum(double * a, double * b, int m, int n)
+void accum(float * a, float * b, int m, int n)
 {
     for(int i=0; i<m; ++i)
         for(int j=0; j<n; ++j)
             a[i*n+j] += b[i*n+j];
 }
 
-void add(double * a, double * b, double * c, int n)
+void add(float * a, float * b, float * c, int n)
 {
     for(int j=0; j<n; ++j)
         c[j] = a[j] + b[j];
 }
 
-void sub(double * a, double * b, double * c, int n)
+void sub(float * a, float * b, float * c, int n)
 {
     for(int j=0; j<n; ++j)
         c[j] = a[j] - b[j];
 }
 
-void negate(double * a, int m, int n)
+void negate(float * a, int m, int n)
 {
     for(int i=0; i<m; ++i)
         for(int j=0; j<n; ++j)
             a[i*n+j] = -a[i*n+j];
 }
 
-void mat_addeye(double * a, int n)
+void mat_addeye(float * a, int n)
 {
     for (int i=0; i<n; ++i)
         a[i*n+i] += 1;
 }
 
-int choldc1(double * a, double * p, int n) {
-    double sum;
+int choldc1(float * a, float * p, int n) {
+    float sum;
 
     for (int i = 0; i < n; i++) {
         for (int j = i; j < n; j++) {
@@ -90,9 +90,9 @@ int choldc1(double * a, double * p, int n) {
     return 0; /* success */
 }
 
-int choldcsl(double * A, double * a, double * p, int n)
+int choldcsl(float * A, float * a, float * p, int n)
 {
-    int i,j,k; double sum;
+    int i,j,k; float sum;
     for (i = 0; i < n; i++)
         for (j = 0; j < n; j++)
             a[i*n+j] = A[i*n+j];
@@ -111,7 +111,7 @@ int choldcsl(double * A, double * a, double * p, int n)
     return 0; /* success */
 }
 
-int cholsl(double * A, double * a, double * p, int n)
+int cholsl(float * A, float * a, float * p, int n)
 {
     int i,j,k;
     if (choldcsl(A,a,p,n)) return 1;

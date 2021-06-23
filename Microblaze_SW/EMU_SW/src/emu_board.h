@@ -5,7 +5,7 @@
 #include "kalman_filter.h"
 
 #define PACKET_SIZE		 12 //Bytes, sensors + 2-bytes CRC
-#define DATA_SAVE_SIZE	 20 //Bytes, filtered and original sensor data
+#define DATA_SAVE_SIZE	 16 //Bytes, filtered and original sensor data
 #define MIN_ANGLE		 60	//Min allowable pitch angle
 #define MAX_ANGLE		 90 //Max allowable pitch angle
 #define MIN_ALTITUDE	300 //Min allowable altitude
@@ -18,31 +18,31 @@ typedef struct {
     int n;          /* number of state values */
     int m;          /* number of observables */
 
-    double x[Nsta];    /* state vector */
+    float x[Nsta];    /* state vector */
 
-    double P[Nsta][Nsta];  /* prediction error covariance */
-    double Q[Nsta][Nsta];  /* process noise covariance */
-    double R[Mobs][Mobs];  /* measurement error covariance */
+    float P[Nsta][Nsta];  /* prediction error covariance */
+    float Q[Nsta][Nsta];  /* process noise covariance */
+    float R[Mobs][Mobs];  /* measurement error covariance */
 
-    double G[Nsta][Mobs];  /* Kalman gain; a.k.a. K */
+    float G[Nsta][Mobs];  /* Kalman gain; a.k.a. K */
 
-    double F[Nsta][Nsta];  /* Jacobian of process model */
-    double H[Mobs][Nsta];  /* Jacobian of measurement model */
+    float F[Nsta][Nsta];  /* Jacobian of process model */
+    float H[Mobs][Nsta];  /* Jacobian of measurement model */
 
-    double Ht[Nsta][Mobs]; /* transpose of measurement Jacobian */
-    double Ft[Nsta][Nsta]; /* transpose of process Jacobian */
-    double Pp[Nsta][Nsta]; /* P, post-prediction, pre-update */
+    float Ht[Nsta][Mobs]; /* transpose of measurement Jacobian */
+    float Ft[Nsta][Nsta]; /* transpose of process Jacobian */
+    float Pp[Nsta][Nsta]; /* P, post-prediction, pre-update */
 
-    double fx[Nsta];   /* output of user defined f() state-transition function */
-    double hx[Mobs];   /* output of user defined h() measurement function */
+    float fx[Nsta];   /* output of user defined f() state-transition function */
+    float hx[Mobs];   /* output of user defined h() measurement function */
 
     /* temporary storage */
-    double tmp0[Nsta][Nsta];
-    double tmp1[Nsta][Mobs];
-    double tmp2[Mobs][Nsta];
-    double tmp3[Mobs][Mobs];
-    double tmp4[Mobs][Mobs];
-    double tmp5[Mobs];
+    float tmp0[Nsta][Nsta];
+    float tmp1[Nsta][Mobs];
+    float tmp2[Mobs][Nsta];
+    float tmp3[Mobs][Mobs];
+    float tmp4[Mobs][Mobs];
+    float tmp5[Mobs];
 
 } ekf_t;
 
@@ -64,14 +64,14 @@ void init_filter();
 	* @param hx gets output of observation function h(x0 .. n-1)
 	* @param H gets mxn Jacobian of h(x)
 */
-void model(double fx[Nsta], double F[Nsta][Nsta], double hx[Mobs], double H[Mobs][Nsta]);
+void model(float fx[Nsta], float F[Nsta][Nsta], float hx[Mobs], float H[Mobs][Nsta]);
 
 /**
 	  Performs one step of the prediction and update.
 	 * @param z observation vector, length m
 	 * @return 0 on success, 1 on failure caused by non-positive-definite matrix.
  */
-uint8_t step(double *z);
+uint8_t step(float *z);
 
 /**
  * Checks 16-bit crc to confirm received data
@@ -104,4 +104,8 @@ void check_conds(sensor_data_t* org_data);
  */
 void store_data(sensor_data_t* org_data, int16_t* filter_data);
 
+/**
+ * It takes a very long time for microblaze to do fpu operations so this is just to make it simpler
+ */
+void process_save(sensor_data_t data);
 #endif /* EMU_BOARD_H */

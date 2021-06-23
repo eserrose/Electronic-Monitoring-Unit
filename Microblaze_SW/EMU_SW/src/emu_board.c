@@ -1,10 +1,11 @@
 #include "emu_board.h"
 #include "platform_config.h"
 #include <math.h>
+#include <string.h>
 
 ekf_t ekf;
-double *x = ekf.x;
-double P0 = 902; //hpa, initial air pressure
+float *x = ekf.x;
+float P0 = 902; //hpa, initial air pressure
 
 void init_filter(){
 	//Initialize the filter
@@ -20,7 +21,7 @@ void init_filter(){
 	ekf.R[2][2] = 0.0001;
 }
 
-void model(double fx[Nsta], double F[Nsta][Nsta], double hx[Mobs], double H[Mobs][Nsta])
+void model(float fx[Nsta], float F[Nsta][Nsta], float hx[Mobs], float H[Mobs][Nsta])
 {
 	// Process model is f(x) = x
 	fx[0] = x[0];
@@ -41,7 +42,7 @@ void model(double fx[Nsta], double F[Nsta][Nsta], double hx[Mobs], double H[Mobs
 	H[2][1] = 1 ;       // Laser altitude from previous state
 }
 
-uint8_t step(double *z)
+uint8_t step(float *z)
 {
 	model(ekf.fx, ekf.F, ekf.hx, ekf.H);
 	return ekf_step(&ekf, z);
@@ -49,29 +50,31 @@ uint8_t step(double *z)
 
 uint8_t check_crc(uint8_t *data){
 	//implement crc-16
-	return 0;
+	return 1;
 }
 
 void process_rx_data(uint8_t *data)
 {
 	sensor_data_t sensor_data;
-	SET_ENABLE();
+
 	if(check_crc(data) > 0){
-		sensor_data.BMP    = data[0] | (data[1] >> 8);
-		sensor_data.MPU[0] = data[2] | (data[3] >> 8);
-		sensor_data.MPU[1] = data[4] | (data[5] >> 8);
-		sensor_data.MPU[2] = data[6] | (data[7] >> 8);
-		sensor_data.DIST   = data[8] | (data[9] >> 8);
+		sensor_data.BMP    = (uint16_t) data[0] | (data[1] << 8);
+		sensor_data.MPU[0] = (uint16_t) data[2] | (data[3] << 8);
+		sensor_data.MPU[1] = (uint16_t) data[4] | (data[5] << 8);
+		sensor_data.MPU[2] = (uint16_t) data[6] | (data[7] << 8);
+		sensor_data.DIST   = (uint16_t) data[8] | (data[9] << 8);
 
 		process_data(sensor_data);
+		//process_save(sensor_data);
 	}
 }
 
 void process_data(sensor_data_t data)
 {
-	double baro_alt = 44330*(1 - pow(data.BMP/P0, 1/5.255));
-	double gnd_angle = sqrt(pow(data.MPU[0],2) + pow(data.MPU[1],2) + pow(data.MPU[2],2) );
-	double z[3] = {gnd_angle, baro_alt, (double) data.DIST};
+
+	float baro_alt = 44330*(1 - powf(data.BMP/P0, 1/5.255));
+	float gnd_angle = sqrt(pow(data.MPU[0],2) + pow(data.MPU[1],2) + pow(data.MPU[2],2) );
+	float z[3] = {gnd_angle, baro_alt, (float) data.DIST};
 	step(z);
 	check_conds(&data);
 }
@@ -94,4 +97,12 @@ void store_data(sensor_data_t* org_data, int16_t* filter_data)
 	memcpy(data+sizeof(sensor_data_t),(uint8_t*) filter_data, 3*2);
 
 	XSpi_Transfer(&SpiInstance, data, NULL, DATA_SAVE_SIZE);
+}
+
+void process_save(sensor_data_t data)
+{
+	SET_ENABLE();
+	u8 dt[10] = {0};
+	memcpy(dt,(uint8_t*) &data, sizeof(sensor_data_t));
+	XSpi_Transfer(&SpiInstance, dt, NULL, 10);
 }

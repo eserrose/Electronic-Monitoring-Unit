@@ -20,6 +20,6 @@ void ekf_init(void * ekf, int n, int m);
   * @param z array of measurement (observation) values
   * @return 0 on success, 1 on failure caused by non-positive-definite matrix.
   */
-uint8_t ekf_step(void * ekf, double * z);
+uint8_t ekf_step(void * ekf, float * z);
 
 #endif /* EXTENDED_KALMAN_FILTER_H_ */
