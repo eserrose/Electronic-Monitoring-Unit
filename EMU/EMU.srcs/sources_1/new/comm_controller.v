@@ -43,17 +43,17 @@ module comm_controller(
     reg[7:0] sensor_data[0:9];
     
     initial begin
-        sensor_data[0] <= 'h0x12;
-        sensor_data[1] <= 'h0x15;
-        sensor_data[2] <= 'h0xa5;
-        sensor_data[3] <= 'h0xb5;
-        sensor_data[4] <= 'h0xe5;
-        sensor_data[5] <= 'h0xc5;
-        sensor_data[6] <= 'h0x05;
-        sensor_data[7] <= 'h0x06;
-        sensor_data[8] <= 'h0x0a;
-        sensor_data[9] <= 'h0x11;
-        
+        sensor_data[0] <= 'h0x20;
+        sensor_data[1] <= 'h0x03;   //800 Pa ~ 1000m
+        sensor_data[2] <= 'h0x08;   
+        sensor_data[3] <= 'h0x00;   // 8 deg
+        sensor_data[4] <= 'h0x52;
+        sensor_data[5] <= 'h0x00;   //82 deg
+        sensor_data[6] <= 'h0x07;
+        sensor_data[7] <= 'h0x00;   //7 deg
+        sensor_data[8] <= 'h0xe8;
+        sensor_data[9] <= 'h0x03;   //1000 m
+        //TODO: add crc
         en <= 0;
     end
     

@@ -102,6 +102,6 @@ void check_conds(sensor_data_t* org_data);
  *
  * @param data received data from sensors
  */
-void store_data(sensor_data_t* org_data, uint16_t* filter_data);
+void store_data(sensor_data_t* org_data, int16_t* filter_data);
 
 #endif /* EMU_BOARD_H */

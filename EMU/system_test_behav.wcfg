@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="system_test_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="comp_defs" />
+            <top_module name="glbl" />
+            <top_module name="ipif_pkg" />
+            <top_module name="lib_pkg" />
+            <top_module name="lmb_bram_if_funcs" />
+            <top_module name="mdm_funcs" />
+            <top_module name="system_test" />
+            <top_module name="vcomponents" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="3200000001fs"></ZoomEndTime>
+      <Cursor1Time time="1991246472fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="276"></NameColumnWidth>
+      <ValueColumnWidth column_width="112"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="11" />
+   <wvobject fp_name="/system_test/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/system_test/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/system_test/ma" type="logic">
+      <obj_property name="ElementShortName">ma</obj_property>
+      <obj_property name="ObjectShortName">ma</obj_property>
+   </wvobject>
+   <wvobject fp_name="/system_test/i2c" type="logic">
+      <obj_property name="ElementShortName">i2c</obj_property>
+      <obj_property name="ObjectShortName">i2c</obj_property>
+   </wvobject>
+   <wvobject fp_name="/system_test/DUT/CommBlock/txd" type="logic">
+      <obj_property name="ElementShortName">txd</obj_property>
+      <obj_property name="ObjectShortName">txd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/system_test/DUT/CommBlock/s_data" type="array">
+      <obj_property name="ElementShortName">s_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">s_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/system_test/DUT/MicroBlaze/EMU_design_i/axi_uartlite_0/interrupt" type="logic">
+      <obj_property name="ElementShortName">interrupt</obj_property>
+      <obj_property name="ObjectShortName">interrupt</obj_property>
+   </wvobject>
+   <wvobject fp_name="/system_test/en0" type="logic">
+      <obj_property name="ElementShortName">en0</obj_property>
+      <obj_property name="ObjectShortName">en0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/system_test/DUT/MotorBlock/en_1" type="logic">
+      <obj_property name="ElementShortName">en_1</obj_property>
+      <obj_property name="ObjectShortName">en_1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/system_test/DUT/MotorBlock/en_2" type="logic">
+      <obj_property name="ElementShortName">en_2</obj_property>
+      <obj_property name="ObjectShortName">en_2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/system_test/ign" type="logic">
+      <obj_property name="ElementShortName">ign</obj_property>
+      <obj_property name="ObjectShortName">ign</obj_property>
+   </wvobject>
+</wave_config>

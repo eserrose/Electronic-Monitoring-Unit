@@ -78,7 +78,7 @@ void process_data(sensor_data_t data)
 
 void check_conds(sensor_data_t* org_data)
 {
-	uint16_t new_data[3] = {(uint16_t) ekf.x[0], (uint16_t) ekf.x[1], (uint16_t) ekf.x[2]};
+	int16_t new_data[3] = {(int16_t) ekf.x[0], (int16_t) ekf.x[1], (int16_t) ekf.x[2]};
 
 	if(ekf.x[0] > MIN_ANGLE && ekf.x[0] < MAX_ANGLE && ekf.x[1] > MIN_ALTITUDE){
 		SET_ENABLE();
@@ -87,11 +87,11 @@ void check_conds(sensor_data_t* org_data)
 	store_data(org_data, new_data);
 }
 
-void store_data(sensor_data_t* org_data, uint16_t* filter_data)
+void store_data(sensor_data_t* org_data, int16_t* filter_data)
 {
-	uint16_t data[DATA_SAVE_SIZE];
+	u8 data[DATA_SAVE_SIZE] = {0};
 	memcpy(data,(uint8_t*) org_data, sizeof(sensor_data_t));
-	memcpy(data,(uint8_t*) filter_data, 3*2);
+	memcpy(data+sizeof(sensor_data_t),(uint8_t*) filter_data, 3*2);
 
-	XSpi_Transfer(&SpiInstance, (u8*) data, NULL, DATA_SAVE_SIZE);
+	XSpi_Transfer(&SpiInstance, data, NULL, DATA_SAVE_SIZE);
 }

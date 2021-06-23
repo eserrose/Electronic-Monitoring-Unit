@@ -25,7 +25,7 @@ module Motor_Unit(
     output reg  ign     //Motor ignition signal    
     );
 
-localparam WAIT_TIME = 5*12*1e3;    //5 ms
+localparam WAIT_TIME = 1e9/(12e6)*5;    //5 ms
     
 // State encoding for main FSM
  localparam 
@@ -53,7 +53,7 @@ localparam WAIT_TIME = 5*12*1e3;    //5 ms
       
       WAIT_EN: begin
         if(en_1 && en_2)
-            counter <= counter + 1;
+            counter = counter + 1;
         if(counter >= integer(WAIT_TIME))
             state <= IGNITE;
       end //WAIT_EN state
