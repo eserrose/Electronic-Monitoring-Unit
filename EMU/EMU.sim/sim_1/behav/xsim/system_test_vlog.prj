@@ -1,0 +1,23 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../EMU.gen/sources_1/bd/EMU_design/ipshared/ec67/hdl" --include "../../../../EMU.gen/sources_1/bd/EMU_design/ipshared/d0f7" \
+"../../../../EMU.ip_user_files/bd/EMU_design/ip/EMU_design_lmb_bram_0/sim/EMU_design_lmb_bram_0.v" \
+"../../../../EMU.ip_user_files/bd/EMU_design/ip/EMU_design_xbar_0/sim/EMU_design_xbar_0.v" \
+"../../../../EMU.ip_user_files/bd/EMU_design/ip/EMU_design_microblaze_0_xlconcat_0/sim/EMU_design_microblaze_0_xlconcat_0.v" \
+"../../../../EMU.ip_user_files/bd/EMU_design/ip/EMU_design_clk_wiz_1_0/EMU_design_clk_wiz_1_0_clk_wiz.v" \
+"../../../../EMU.ip_user_files/bd/EMU_design/ip/EMU_design_clk_wiz_1_0/EMU_design_clk_wiz_1_0.v" \
+"../../../../EMU.ip_user_files/bd/EMU_design/sim/EMU_design.v" \
+"../../../../EMU.srcs/sources_1/new/Comm_Unit.v" \
+"../../../../EMU.srcs/sources_1/new/EMU_Top.v" \
+"../../../../EMU.gen/sources_1/bd/EMU_design/hdl/EMU_design_wrapper.v" \
+"../../../../EMU.srcs/sources_1/new/Memory_Unit.v" \
+"../../../../EMU.srcs/sources_1/new/Motor_Unit.v" \
+"../../../../EMU.srcs/sources_1/new/comm_controller.v" \
+"../../../../EMU.srcs/sources_1/new/uart_controller.v" \
+"../../../../EMU.srcs/sources_1/new/uart_datapath.v" \
+"../../../../EMU.srcs/sim_1/new/system_test.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

@@ -31,12 +31,14 @@ module EMU_Top(
  wire   spi_0;  //MISO/MOSI lines
  
  Comm_Unit CommBlock(
-    .clk       (clk),    //Clock signal
+    .clk       (clk),       //Clock signal
+    .rst       (rst),       //Active high synchronous reset
     .rxd       (main_avionic),
     //TODO: I2C Connection with sensors (bmp, mpu, laser)
     .txd       (rxd),    //UART tx, will be connected to RX of MicroBlaze
     .en_1      (en_1)    //Main avionic system enable line    
     );
+
     
   Memory_Unit MemBlock(
     .clk        (clk),       
