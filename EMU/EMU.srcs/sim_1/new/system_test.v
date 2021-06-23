@@ -26,6 +26,7 @@ EMU_Top DUT(
     .clk            (clk),  
     .rst            (rst),
     .main_avionic   (ma), 
+    .i2c            (i2c),
     .en_0           (en0),
     .ign            (ign)
     );
@@ -34,6 +35,7 @@ EMU_Top DUT(
     reg clk;
     reg ma;
     reg en0;
+    reg i2c;
     wire ign;
     
     reg[9:0]sl_reg = 'hEE;    //shift-left register (to load with simulated RX data)
@@ -49,6 +51,7 @@ EMU_Top DUT(
         ma   <= 1'b1;
         en0  <= 1'b1;
         rst  <= 1'b1;
+        i2c  <= 1'b0;
         #1000 rst <= 1'b0;
     end
     
@@ -61,6 +64,13 @@ EMU_Top DUT(
             sl_reg <= sl_reg << 1;
             #(1e9/uart_datapath.BAUD_RATE);
         end 
+    end
+    
+    always begin
+        #1e5      //every 0.1ms
+        i2c <= 1; //indicate data has been read from sensors
+        #1e4     //reading took 0.01ms
+        i2c <= 0;
     end
     
 endmodule

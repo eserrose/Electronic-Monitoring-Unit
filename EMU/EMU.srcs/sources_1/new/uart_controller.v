@@ -17,6 +17,7 @@ module uart_controller(
    input   i_ge_8,          //If bit counter is greater than 7
    input   i_ge_7,          //If bit counter is greater than 6
    output reg  rr,          //Active high receive-ready pin (indicates new data received)
+   output reg  ta,          //Transmit end acknowledge
    output reg  load,        //Load data for TX
    output reg  tx_inc,      //Increment bit counter
    output reg  rx_inc       //Increment bit counter
@@ -26,7 +27,8 @@ module uart_controller(
 //***************************************************************************
 // Parameter definitions
 //***************************************************************************
-
+parameter BAUD_RATE    = 115_200;            //Baud rate is 115200
+parameter CLOCK_RATE   = 12_000_000;         //Clock signal is 12 MHz
 // State encoding for main FSM
  localparam 
     IDLE     = 3'b000,
@@ -81,6 +83,7 @@ module uart_controller(
     end     //if rst
  end       //always   
  
+ integer counter;
  // TX state machine
  always @(posedge clk)
  begin
@@ -91,6 +94,8 @@ module uart_controller(
       IDLE: begin
         load    <= 0; //Set initial values
         tx_inc  <= 0;
+        ta      <= 0;
+        counter = 0;
         //On detection of tr being high, transition to TX_START
         if(tr)
             TX_state <= TX_START;
@@ -102,7 +107,7 @@ module uart_controller(
       end //TX_START state
       
       TX_DATA: begin //Clear load and set bit_inc
-        load    <= 0;
+        load   <= 0;
         tx_inc <= 1;
         if(i_ge_8)begin
             tx_inc <= 0;
@@ -111,7 +116,12 @@ module uart_controller(
       end //TX_DATA state
       
       TX_STOP: begin
-        TX_state <= IDLE;
+        //wait a bit so that the receiver can understand the next start bit
+        counter = counter + 1;
+        if(counter == CLOCK_RATE/BAUD_RATE) begin
+            ta <= 1;    //transmit acknowledge
+            TX_state <= IDLE;
+        end
       end //TX_END state
     endcase   
     end    //if reset

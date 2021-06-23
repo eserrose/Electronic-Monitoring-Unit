@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-// Date        : Wed Jun 16 17:24:07 2021
+// Date        : Wed Jun 23 06:11:20 2021
 // Host        : EserPC running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               e:/Xilinx/Projects/ElectronicMonitoringUnit/EMU/EMU.gen/sources_1/bd/EMU_design/ip/EMU_design_axi_uartlite_0_0/EMU_design_axi_uartlite_0_0_stub.v

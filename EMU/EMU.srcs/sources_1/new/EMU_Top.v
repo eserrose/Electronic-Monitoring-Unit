@@ -18,6 +18,7 @@ module EMU_Top(
     input   clk,          //Clock
     input   rst,          //Active high synchronous reset
     input   main_avionic, //RX from main avionic system
+    input   i2c,          //Sensor data from i2c (will be implemented later)
     input   en_0,         //Enable pin from mechanical switch (open-circuit)
     output  ign           //Motor ignition signal
     );
@@ -31,15 +32,14 @@ module EMU_Top(
  wire   spi_0;  //MISO/MOSI lines
  
  Comm_Unit CommBlock(
-    .clk       (clk),       //Clock signal
-    .rst       (rst),       //Active high synchronous reset
-    .rxd       (main_avionic),
-    //TODO: I2C Connection with sensors (bmp, mpu, laser)
-    .txd       (rxd),    //UART tx, will be connected to RX of MicroBlaze
-    .en_1      (en_1)    //Main avionic system enable line    
+    .clk       (clk),           //Clock signal
+    .rst       (rst),           //Active high synchronous reset
+    .i2c       (i2c),           //Sensor data from i2c, will be implemented later
+    .rxd       (main_avionic),  //RX from main avionic
+    .txd       (rxd),           //UART tx, will be connected to RX of MicroBlaze
+    .en_1      (en_1)           //Main avionic system enable line    
     );
 
-    
   Memory_Unit MemBlock(
     .clk        (clk),       
     .cs         (spi_ss), //chip select   

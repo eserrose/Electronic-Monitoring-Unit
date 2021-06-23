@@ -16,16 +16,14 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module Comm_Unit(
-    input      clk,    //Clock signal
-    input      rst,    //Active high synchronous reset
-    input      rxd,    //Rx from main avionic (RS232)
-    output     txd,    //UART tx, will be connected to RX of MicroBlaze
-    //TODO: I2C Connection with sensors (bmp, mpu, laser)
-    output     en_1    //Main avionic system enable line    
+    input       clk,    //Clock signal
+    input       rst,    //Active high synchronous reset
+    input       i2c,    //Sensor data from i2c, will be implemented later
+    input       rxd,    //Rx from main avionic (RS232)
+    output      txd,    //UART tx, will be connected to RX of MicroBlaze
+    output      en_1    //Main avionic system enable line    
     );
-    
- //UART (RS232) comm with main avionic, set EN_1 if received message equals the keyword
-    
+        
   wire  load;       //TX load signal
   wire  tx_inc;     //Bit counter increment signal
   wire  rx_inc;     //Bit counter increment signal
@@ -38,12 +36,16 @@ module Comm_Unit(
   
 comm_controller controller(
     .clk    (clk),
+    .i2c    (i2c),
     .msg    (msg),
     .s_data (s_data),
     .tr     (tr),
     .rr     (rr),
+    .ta     (ta),
     .en     (en_1)
 );
+
+ //UART (RS232) comm with main avionic, set EN_1 if received message equals the keyword
   
 uart_controller uart_ctrl (
     .clk     (clk),
@@ -51,6 +53,7 @@ uart_controller uart_ctrl (
     .tr      (tr),
     .rx      (rxd),
     .rr      (rr),
+    .ta      (ta),
     .load    (load),
     .tx_inc  (tx_inc),
     .rx_inc  (rx_inc),
@@ -72,6 +75,8 @@ uart_datapath uart_dp (
     .i_ge_7  (i_ge_7)
 );
     
-    //I2C comm with sensors, packet the data and send to microblaze
+ //I2C comm with sensors, packet the data and send to microblaze
+ 
+ //TODO: i2c datapath and controller here. they will request the i2c data and output to a register, and ping the comm controller
     
  endmodule

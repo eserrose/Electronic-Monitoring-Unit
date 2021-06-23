@@ -3,12 +3,12 @@
 // SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 // Vivado v2020.2 (64-bit)
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
-// Created on Wednesday June 23, 2021 - 04:42:43 am, from:
+// Created on Wednesday June 23, 2021 - 06:23:21 am, from:
 //
 //     Map file     - e:\Xilinx\Projects\ElectronicMonitoringUnit\EMU\EMU.gen\sources_1\bd\EMU_design\EMU_design.bmm
 //     Data file(s) - E:/Xilinx/Projects/ElectronicMonitoringUnit/Microblaze_SW/EMU_SW/Debug/EMU_SW.elf
 //
-// Address space 'DUT_MicroBlaze_EMU_design_i_microblaze_0.DUT_MicroBlaze_EMU_design_i_microblaze_0_local_memory_lmb_bram_64K_2_ADDR_SPACE', bit lane [31:0].
+// Address space 'DUT_MicroBlaze_EMU_design_i_microblaze_0.DUT_MicroBlaze_EMU_design_i_microblaze_0_local_memory_lmb_bram_ADDR_SPACE', bit lane [31:0].
 //
 // Bus width = 32 bits, number of bus blocks = 1.
 
@@ -1479,4 +1479,4 @@
     00000000 00000001 00000000 44A00000 00000001 00000000 00020801 00000000
     00100100 00000000 40000000 00000000 00000000 00000000 41200000 FFFFFFFF
     00000001 00000010 00000002 00000020 00000001 00000000 00009D08 00000000
-    00000000 00000000 00000000 00000000 40600000 00002580 00080000
+    00000000 00000000 00000000 00000000 40600000 0001C200 00080000

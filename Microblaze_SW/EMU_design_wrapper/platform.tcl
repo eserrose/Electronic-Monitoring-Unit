@@ -33,3 +33,10 @@ platform config -updatehw {E:/Xilinx/Projects/ElectronicMonitoringUnit/EMU/EMU_d
 platform generate -domains 
 bsp reload
 bsp reload
+platform config -updatehw {E:/Xilinx/Projects/ElectronicMonitoringUnit/EMU/EMU_Top.xsa}
+bsp reload
+bsp reload
+platform config -updatehw {E:/Xilinx/Projects/ElectronicMonitoringUnit/EMU/EMU_Top.xsa}
+platform config -updatehw {E:/Xilinx/Projects/ElectronicMonitoringUnit/Microblaze_SW/EMU_design_wrapper.xsa}
+platform config -updatehw {E:/Xilinx/Projects/ElectronicMonitoringUnit/EMU/EMU_design_wrapper.xsa}
+platform generate -domains standalone_microblaze_0 
