@@ -53,6 +53,7 @@
 XGpio Gpio; 					/* The Instance of the GPIO Driver */
 XUartLite UartLite;             /* The instance of the UartLite Device */
 XIntc InterruptController;      /* The instance of the Interrupt Controller */
+XSpi SpiInstance;			    /* The instance of the SPI device */
 
 u8 ReceiveBuffer[EMU_BUFFER_SIZE];			//UART RX Buffer
 volatile int TotalReceivedCount = 0; 		//RX Counter
@@ -123,6 +124,62 @@ init_gpio()
 	}
 }
 
+uint8_t
+init_spi()
+{
+	XSpi_Config *ConfigPtr;
+	int Status;
+
+	ConfigPtr = XSpi_LookupConfig(SPI_DEVICE_ID);
+	if (ConfigPtr == NULL) {
+		return XST_FAILURE;
+	}
+
+	Status = XSpi_CfgInitialize(&SpiInstance, ConfigPtr,
+				ConfigPtr->BaseAddress);
+	if (Status != XST_SUCCESS) {
+		xil_printf("SPI Initialization Failed\r\n");
+		return XST_FAILURE;
+	}
+
+	/*
+	 * Perform a self-test to ensure that the hardware was built correctly.
+	 */
+	Status = XSpi_SelfTest(&SpiInstance);
+	if (Status != XST_SUCCESS) {
+		xil_printf("SPI Self-Test Failed\r\n");
+		return XST_FAILURE;
+	}
+
+	/*
+	 * The SPI device is a slave by default and the clock phase and polarity
+	 * have to be set according to its master. In this instance, CPOL is set
+	 * to active low and CPHA is set to 1.
+	 */
+	Status = XSpi_SetOptions(&SpiInstance, XSP_MASTER_OPTION |
+							XSP_MANUAL_SSELECT_OPTION);
+	if (Status != XST_SUCCESS) {
+		return XST_FAILURE;
+	}
+
+	/*
+	 * Start the SPI driver so that the device is enabled.
+	 */
+	XSpi_Start(&SpiInstance);
+
+	/*
+	 * Disable Global interrupt to use polled mode operation.
+	 */
+	XSpi_IntrGlobalDisable(&SpiInstance);
+
+	/*
+	 * Select the slave device
+	 */
+	XSpi_SetSlaveSelect(&SpiInstance, 0x01);
+
+	return XST_SUCCESS;
+}
+
 void
 init_platform()
 {
@@ -138,7 +195,9 @@ init_platform()
     enable_caches();
     init_gpio();
     init_uart_lite();
+    init_spi();
     microblaze_enable_interrupts(); //this is the most important step that's not included in tutorials!
+
 }
 
 void

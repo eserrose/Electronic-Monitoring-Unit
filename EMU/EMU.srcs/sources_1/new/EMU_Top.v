@@ -27,8 +27,8 @@ module EMU_Top(
  wire   en_1;   //Enable pin from comm unit to motor unit
  wire   en_2;   //Enable pin from mb to motor unit
  wire   addr;   //Address line of memory block
- wire   data;   //Data line of memory block
- wire   memw;   //Memory write
+ wire   spi_ss; //Slave select of SPI
+ wire   spi_0;  //MISO/MOSI lines
  
  Comm_Unit CommBlock(
     .clk       (clk),    //Clock signal
@@ -40,17 +40,13 @@ module EMU_Top(
     
   Memory_Unit MemBlock(
     .clk        (clk),       
-    .addr       (addr), //connect this to mb        
-    .write_data (data), //connect this to mb        
-    .memwrite   (memw)  //connect this to mb 
+    .cs         (spi_ss), //chip select   
+    .spi_io     (spi_0)   //miso/mosi lines        
     );
     
  EMU_design_wrapper MicroBlaze(
     .gpio_rtl_tri_o     (en_2),
     .qspi_flash_io0_io  (spi_0),
-    .qspi_flash_io1_io  (spi_1),
-    .qspi_flash_io2_io  (spi_2),
-    .qspi_flash_io3_io  (spi_3),
     .qspi_flash_ss_io   (spi_ss),
     .reset              (rst),
     .sys_clock          (clk),

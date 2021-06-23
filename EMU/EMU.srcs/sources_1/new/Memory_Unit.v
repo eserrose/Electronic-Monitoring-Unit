@@ -1,31 +1,23 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Engineer: E. Eser Gul
 // 
 // Create Date: 06/02/2021 09:12:46 AM
-// Design Name: 
 // Module Name: Memory_Unit
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
+// Description: This is only a place-holder memory module that will be replaced by an external flash device 
 // 
-// Dependencies: 
-// 
-// Revision:
 // Revision 0.01 - File Created
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
 module Memory_Unit(
-    input wire clk,                  // Clock signal
-    input wire [31:0] addr,          // Memory Address
-    input wire [31:0] write_data,    // Memory Address Contents
-    input wire memwrite
+    input wire clk,      // Clock signal
+    input wire cs,       //SPI Chip select (active low)
+    inout wire spi_io    //SPI Input/Output
     );
-    
+
+reg [31:0] addr;          // Memory Address
 reg [31:0] MEMO[0:255];  // 256 words of 32-bit memory
 
 integer i;
@@ -37,8 +29,8 @@ initial begin
 end
 
 always @(posedge clk) begin
-  if (memwrite == 1'b1) 
-    MEMO[addr] <= write_data;
+  if (cs == 1'b0) 
+    MEMO[addr] <= spi_io;
 end
 
 endmodule

@@ -21,9 +21,6 @@ module test();
 EMU_design_wrapper DUT(
     .gpio_rtl_tri_o     (en),
     .qspi_flash_io0_io  (spi_0),
-    .qspi_flash_io1_io  (spi_1),
-    .qspi_flash_io2_io  (spi_2),
-    .qspi_flash_io3_io  (spi_3),
     .qspi_flash_ss_io   (spi_ss),
     .reset              (rst),
     .sys_clock          (clk),
@@ -35,8 +32,7 @@ EMU_design_wrapper DUT(
     reg rxd;
     wire txd;
     wire en;
-    wire spi_0, spi_1, spi_2, spi_3;
-    wire spi_ss;
+    wire spi_0, spi_ss;
     
     always begin
         clk <= 1'b0;

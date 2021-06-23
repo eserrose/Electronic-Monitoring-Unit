@@ -78,7 +78,7 @@ void process_data(sensor_data_t data)
 
 void check_conds(sensor_data_t* org_data)
 {
-	double new_data[3] = {ekf.x[0], ekf.x[1], ekf.x[2]};
+	uint16_t new_data[3] = {(uint16_t) ekf.x[0], (uint16_t) ekf.x[1], (uint16_t) ekf.x[2]};
 
 	if(ekf.x[0] > MIN_ANGLE && ekf.x[0] < MAX_ANGLE && ekf.x[1] > MIN_ALTITUDE){
 		SET_ENABLE();
@@ -87,7 +87,11 @@ void check_conds(sensor_data_t* org_data)
 	store_data(org_data, new_data);
 }
 
-void store_data(sensor_data_t* org_data, double* filter_data)
+void store_data(sensor_data_t* org_data, uint16_t* filter_data)
 {
-	//Use quad SPI to transfer data to external flash memory
+	uint16_t data[DATA_SAVE_SIZE];
+	memcpy(data,(uint8_t*) org_data, sizeof(sensor_data_t));
+	memcpy(data,(uint8_t*) filter_data, 3*2);
+
+	XSpi_Transfer(&SpiInstance, (u8*) data, NULL, DATA_SAVE_SIZE);
 }

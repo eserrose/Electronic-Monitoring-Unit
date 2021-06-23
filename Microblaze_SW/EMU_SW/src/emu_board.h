@@ -5,6 +5,7 @@
 #include "kalman_filter.h"
 
 #define PACKET_SIZE		 12 //Bytes, sensors + 2-bytes CRC
+#define DATA_SAVE_SIZE	 20 //Bytes, filtered and original sensor data
 #define MIN_ANGLE		 60	//Min allowable pitch angle
 #define MAX_ANGLE		 90 //Max allowable pitch angle
 #define MIN_ALTITUDE	300 //Min allowable altitude
@@ -101,6 +102,6 @@ void check_conds(sensor_data_t* org_data);
  *
  * @param data received data from sensors
  */
-void store_data(sensor_data_t* org_data, double* filter_data);
+void store_data(sensor_data_t* org_data, uint16_t* filter_data);
 
 #endif /* EMU_BOARD_H */

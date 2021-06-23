@@ -57,8 +57,8 @@ int main()
 {
     init_platform();
     init_filter();
-	//Clear receive buffer
-	memset(ReceiveBuffer, 0, EMU_BUFFER_SIZE);
+
+	memset(ReceiveBuffer, 0, EMU_BUFFER_SIZE); //Clear receive buffer
 
     //Main loop
 	while(1){

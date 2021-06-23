@@ -22,4 +22,9 @@ void test_gpio(){
 		for(cnt = 0; cnt < 10; cnt++);
 	  }
 }
+
+void test_spi(){
+	u8 data[5] = {2,3,4,5,6};
+	XSpi_Transfer(&SpiInstance, data, NULL, 5);
+}
 #endif
