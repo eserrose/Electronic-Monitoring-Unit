@@ -1,10 +1,10 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-// Date        : Wed Jun  2 07:50:15 2021
+// Date        : Wed Jun 23 18:32:24 2021
 // Host        : EserPC running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub {e:/Xilinx/Projects/Electronic Monitoring
-//               Unit/EMU/EMU.gen/sources_1/bd/EMU_design/ip/EMU_design_microblaze_0_0/EMU_design_microblaze_0_0_stub.v}
+// Command     : write_verilog -force -mode synth_stub
+//               e:/Xilinx/Projects/ElectronicMonitoringUnit/EMU/EMU.gen/sources_1/bd/EMU_design/ip/EMU_design_microblaze_0_0/EMU_design_microblaze_0_0_stub.v
 // Design      : EMU_design_microblaze_0_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a35tcpg236-1

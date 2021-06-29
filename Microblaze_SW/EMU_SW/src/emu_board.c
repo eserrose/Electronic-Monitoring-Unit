@@ -64,8 +64,8 @@ void process_rx_data(uint8_t *data)
 		sensor_data.MPU[2] = (uint16_t) data[6] | (data[7] << 8);
 		sensor_data.DIST   = (uint16_t) data[8] | (data[9] << 8);
 
-		process_data(sensor_data);
-		//process_save(sensor_data);
+		//process_data(sensor_data);
+		process_save(sensor_data);
 	}
 }
 

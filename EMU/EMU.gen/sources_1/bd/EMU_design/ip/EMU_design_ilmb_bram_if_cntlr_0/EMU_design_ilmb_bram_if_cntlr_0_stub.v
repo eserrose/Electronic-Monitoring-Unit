@@ -1,10 +1,10 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-// Date        : Wed Jun  2 07:49:40 2021
+// Date        : Wed Jun  2 07:49:39 2021
 // Host        : EserPC running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub {e:/Xilinx/Projects/Electronic Monitoring
-//               Unit/EMU/EMU.gen/sources_1/bd/EMU_design/ip/EMU_design_ilmb_bram_if_cntlr_0/EMU_design_ilmb_bram_if_cntlr_0_stub.v}
+// Command     : write_verilog -force -mode synth_stub -rename_top EMU_design_ilmb_bram_if_cntlr_0 -prefix
+//               EMU_design_ilmb_bram_if_cntlr_0_ EMU_design_ilmb_bram_if_cntlr_0_stub.v
 // Design      : EMU_design_ilmb_bram_if_cntlr_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a35tcpg236-1

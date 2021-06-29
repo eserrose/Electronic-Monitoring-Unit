@@ -304,10 +304,17 @@ proc create_root_design { parentCell } {
   # Create instance: microblaze_0, and set properties
   set microblaze_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:microblaze:11.0 microblaze_0 ]
   set_property -dict [ list \
+   CONFIG.C_ADDR_TAG_BITS {0} \
+   CONFIG.C_DATA_SIZE {32} \
+   CONFIG.C_DCACHE_ADDR_TAG {0} \
    CONFIG.C_DEBUG_ENABLED {1} \
    CONFIG.C_D_AXI {1} \
    CONFIG.C_D_LMB {1} \
    CONFIG.C_I_LMB {1} \
+   CONFIG.C_USE_BARREL {1} \
+   CONFIG.C_USE_DIV {1} \
+   CONFIG.C_USE_FPU {2} \
+   CONFIG.C_USE_HW_MUL {1} \
  ] $microblaze_0
 
   # Create instance: microblaze_0_axi_intc, and set properties

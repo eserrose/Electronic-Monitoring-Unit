@@ -40,3 +40,7 @@ platform config -updatehw {E:/Xilinx/Projects/ElectronicMonitoringUnit/EMU/EMU_T
 platform config -updatehw {E:/Xilinx/Projects/ElectronicMonitoringUnit/Microblaze_SW/EMU_design_wrapper.xsa}
 platform config -updatehw {E:/Xilinx/Projects/ElectronicMonitoringUnit/EMU/EMU_design_wrapper.xsa}
 platform generate -domains standalone_microblaze_0 
+platform config -updatehw {E:/Xilinx/Projects/ElectronicMonitoringUnit/EMU/EMU_design_wrapper.xsa}
+platform generate -domains 
+platform config -updatehw {E:/Xilinx/Projects/ElectronicMonitoringUnit/Microblaze_SW/EMU_Top.xsa}
+platform generate -domains 
